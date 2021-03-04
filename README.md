@@ -8,4 +8,4 @@
 1. manage_earth.py 原代码网址问题，http->https
 2. manage_earth.py ssl认证问题
 3. config.py 新增关于deepin壁纸更换的参数
-### 注意：该代码只针对earth壁纸，有关momentum壁纸部分为变动
+### 注意：该代码只针对earth壁纸，有关momentum壁纸部分未变动
