@@ -5,7 +5,7 @@
 ### 仅供娱乐，侵权即删！
 
 主要修改部分为以下：
-1、manage_earth.py 原代码网址问题，http->https
-2、manage_earth.py ssl认证问题
-3、config.py 新增关于deepin壁纸更换的参数
-注意：该代码只针对earth壁纸，有关momentum壁纸部分为变动
+1.manage_earth.py 原代码网址问题，http->https
+2.manage_earth.py ssl认证问题
+3.config.py 新增关于deepin壁纸更换的参数
+### 注意：该代码只针对earth壁纸，有关momentum壁纸部分为变动
