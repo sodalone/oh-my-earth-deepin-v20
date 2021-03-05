@@ -1,11 +1,12 @@
 import os
 import sys
 import subprocess
+from PIL import Image
 
-from config import xfce_displays, screen
+from config import xfce_displays, screen, deepin_h, deepin_w
 
 
-def set_background(file_path, picture_option):
+def set_background(file_path, picture_option, img=None):
     '''
     set desktop background
     picture_option: scaled, wallpaper, stretched, spanned
@@ -38,6 +39,11 @@ def set_background(file_path, picture_option):
                          'set the picture of aDesktop to \"' + file_path + '"\nend repeat\nend tell'])
         subprocess.call(["killall", "Dock"])
     elif de == "deepin":
+        png = img.resize((min(deepin_h, deepin_w), min(deepin_h, deepin_w)), Image.ANTIALIAS)
+        background = Image.new('RGB', size=(deepin_w, deepin_h), color=(0, 0, 0))
+        background.paste(png, ((deepin_w-deepin_h)//2, 0))
+        background.save(file_path, "PNG")
+
         for s in screen:
             os.system("dbus-send --dest=com.deepin.daemon.Appearance /com/deepin/daemon/Appearance --print-reply com.deepin.daemon.Appearance.SetMonitorBackground string:'{}' string:'file://{}'".format(s, file_path))
     elif has_program("feh"):

@@ -18,7 +18,7 @@ from time      import strptime, strftime, mktime
 from PIL       import Image
 from pytz      import timezone
 from tzlocal   import get_localzone
-from config    import level, earth_output_file, auto_offset, hour_offset, deepin_w, deepin_h
+from config    import level, earth_output_file, auto_offset, hour_offset
 from utils     import set_background, get_desktop_environment
 import ssl
 
@@ -137,12 +137,10 @@ class EarthManager():
         print("\nSaving to '%s'..." % (earth_output_file))
         if not os.path.exists(os.path.dirname(earth_output_file)):
             os.makedirs(os.path.dirname(earth_output_file))
-        png = png.resize((min(deepin_h, deepin_w), min(deepin_h, deepin_w)), Image.ANTIALIAS)
-        background = Image.new('RGB', size=(deepin_w, deepin_h), color=(0, 0, 0))
-        background.paste(png, ((deepin_w-deepin_h)//2, 0))
-        background.save(earth_output_file, "PNG")
 
-        if not set_background(earth_output_file, "scaled"):
+        png.save(earth_output_file, "PNG")
+
+        if not set_background(earth_output_file, "scaled", png):
             exit("Your desktop environment '{}' is not supported.".format(get_desktop_environment()))
 
         print("Done!")
