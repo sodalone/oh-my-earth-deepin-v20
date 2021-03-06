@@ -10,3 +10,8 @@
 3. config.py 新增关于deepin壁纸更换的参数
 4. 修改utils.py中的set_background()函数，新增deepin选项
 ### 注意：该代码只针对earth壁纸，有关momentum壁纸部分未变动
+
+### 壁纸展示如下
+![erath](./picture/earth-1.jpg)
+
+加入crontab的定时任务中，就可以达到桌面不断变化成当前拍摄的地球画面
