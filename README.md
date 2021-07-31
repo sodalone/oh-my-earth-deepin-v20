@@ -9,6 +9,7 @@
 2. manage_earth.py ssl认证问题
 3. config.py 新增关于deepin壁纸更换的参数
 4. 修改utils.py中的set_background()函数，新增deepin选项
+5. 修改manager_earth.py中的urllib2
 ### 注意：该代码只针对earth壁纸，有关momentum壁纸部分未变动
 
 ### 壁纸展示如下
