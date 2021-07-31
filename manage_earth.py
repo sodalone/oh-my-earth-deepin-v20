@@ -7,7 +7,7 @@ Created on Jun 03, 2017
 @author ujnzxw <ujnzxw@gmail.com>
 '''
 
-import os, urllib, urllib2
+import os, urllib.request
 import multiprocessing
 
 from datetime  import datetime, timedelta
@@ -43,7 +43,7 @@ def download_chunk(args):
                                    width,
                                    strftime("%Y/%m/%d/%H%M%S", latest), x, y)
     print(url)
-    tile_w   = urllib2.urlopen(url)
+    tile_w   = urllib.request.urlopen(url)
     tiledata = tile_w.read()
 
     with counter.get_lock():
@@ -103,8 +103,8 @@ class EarthManager():
         url = 'https://himawari8-dl.nict.go.jp/himawari8/img/D531106/latest.json'
         latest_json=None
         try:
-            latest_json =  urllib2.urlopen(url)
-        except urllib2.URLError:
+            latest_json =  urllib.request.urlopen(url)
+        except urllib.request.URLError:
             print('ERROR: Site himawari8-dl.nict.go.jp cannot be reached')
 
         latest = strptime(loads(latest_json.read().decode("utf-8"))["date"], "%Y-%m-%d %H:%M:%S")
